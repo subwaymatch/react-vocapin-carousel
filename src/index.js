@@ -8,14 +8,14 @@ let newId = 1;
 let l = [
   {
     id: newId++,
-    title: "XSS",
-    desc: "Cross-site Scripting"
+    title: "abundant",
+    desc: "present in large quantities"
   },
 
   {
     id: newId++,
-    title: "CSRF",
-    desc: "Cross-Site Request Forgery"
+    title: "curriculum	",
+    desc: "the courses given by a school or program"
   },
 
   {
@@ -147,24 +147,31 @@ class App extends React.Component {
               };
 
               if (shouldAnimate[idx] === true) {
-                itemStyle.transition = `0.4s linear`;
+                itemStyle.transition = `0.3s linear`;
+              }
+
+              if (idx !== this.state.currentIndex) {
+                itemStyle.opacity = 0.2;
               }
 
               return (
                 <div key={idx} style={itemStyle}>
-                  <div className="id">
-                    <strong>Idx:</strong> {idx}
-                  </div>
                   <div className="title">{item.title}</div>
+                  <div className="desc">{item.desc}</div>
                 </div>
               );
             })}
           </div>
 
-          <div className="controls">
-            <button onClick={this.moveToPrevSlide}>Prev</button>
-            <span>|</span>
-            <button onClick={this.moveToNextSlide}>Next</button>
+          <div className="carousel-controls">
+            <div
+              className="btn-move-prev btn-move"
+              onClick={this.moveToPrevSlide}
+            />
+            <div
+              className="btn-move-next btn-move"
+              onClick={this.moveToNextSlide}
+            />
           </div>
         </div>
       </div>
